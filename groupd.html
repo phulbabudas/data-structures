@@ -1,0 +1,213 @@
+ <!-- <!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>Railway Group D Subjects</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f6f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      color: #333;
+    }
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #888;
+      margin-top: 10px;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #007BFF;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚂 Railway Group D Subjects</h1>
+  <label for="subjectSelect">अपना विषय चुनें:</label>
+  <select id="subjectSelect">
+    <option value="">-- विषय चुनें --</option>
+  </select>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    // Railway Group D ke subjects
+    const subjects = [
+      { id: 'math', name: 'Mathematics (गणित)' },
+      { id: 'reasoning', name: 'General Intelligence and Reasoning (सामान्य बुद्धि एवं तर्कशक्ति)' },
+      { id: 'science', name: 'General Science (सामान्य विज्ञान)' },
+      { id: 'gk', name: 'General Awareness and Current Affairs (सामान्य ज्ञान एवं समसामयिक घटनाएँ)' }
+    ];
+
+    const select = document.getElementById('subjectSelect');
+    const result = document.getElementById('result');
+
+    // Dropdown me options add karna
+    subjects.forEach(sub => {
+      const opt = document.createElement('option');
+      opt.value = sub.id;
+      opt.textContent = sub.name;
+      select.appendChild(opt);
+    });
+
+    // Jab user subject choose kare
+    select.addEventListener('change', () => {
+      if (select.value) {
+        const subject = subjects.find(s => s.id === select.value);
+        result.textContent = `आपने चुना है: ${subject.name}`;
+      } else {
+        result.textContent = '';
+      }
+    });
+  </script>
+
+</body>
+</html> --> -->
+
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>Railway Group D App</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #eef2f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #222;
+    }
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #555;
+      margin-top: 10px;
+    }
+    .topics, .questions {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      margin-top: 20px;
+    }
+    .topics h2, .questions h3 {
+      color: #007BFF;
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚂 Railway Group D Subjects App</h1>
+
+  <label for="subjectSelect">अपना विषय चुनें:</label>
+  <select id="subjectSelect">
+    <option value="">-- विषय चुनें --</option>
+  </select>
+
+  <div class="topics" id="topics"></div>
+  <div class="questions" id="questions"></div>
+
+  <script>
+    // 📘 Subjects with Topics & Practice Questions
+    const subjects = [
+      {
+        id: 'math',
+        name: 'Mathematics (गणित)',
+        topics: ['Number System', 'Simplification', 'Percentage', 'Profit & Loss', 'Time & Work', 'Simple & Compound Interest'],
+        questions: [
+          'Q1. यदि किसी वस्तु का मूल्य 500 रुपये है और 10% की छूट दी जाती है, तो बिक्री मूल्य क्या होगा?',
+          'Q2. एक ट्रेन 60 km/h की गति से चलती है, 180 km तय करने में कितना समय लगेगा?',
+          'Q3. 25% का 300 कितना होता है?'
+        ]
+      },
+      {
+        id: 'reasoning',
+        name: 'General Intelligence and Reasoning (सामान्य तर्कशक्ति)',
+        topics: ['Analogies', 'Series', 'Coding-Decoding', 'Blood Relation', 'Direction Sense', 'Syllogism'],
+        questions: [
+          'Q1. यदि CAT → DBU, तो DOG → ?',
+          'Q2. A, B का भाई है और B, C की बहन है — A का C से क्या सम्बन्ध है?',
+          'Q3. उत्तर दिशा के विपरीत दिशा कौन सी है?'
+        ]
+      },
+      {
+        id: 'science',
+        name: 'General Science (सामान्य विज्ञान)',
+        topics: ['Physics Basics', 'Chemistry Basics', 'Biology Basics'],
+        questions: [
+          'Q1. जल का रासायनिक सूत्र क्या है?',
+          'Q2. मानव शरीर में सबसे बड़ी हड्डी कौन सी है?',
+          'Q3. न्यूटन का प्रथम नियम किससे सम्बंधित है?'
+        ]
+      },
+      {
+        id: 'gk',
+        name: 'General Awareness & Current Affairs (सामान्य ज्ञान एवं समसामयिक घटनाएँ)',
+        topics: ['Indian History', 'Geography', 'Indian Polity', 'Sports', 'Current Affairs'],
+        questions: [
+          'Q1. भारत का संविधान कब लागू हुआ?',
+          'Q2. भारत की सबसे लंबी नदी कौन सी है?',
+          'Q3. वर्तमान में भारत के राष्ट्रपति कौन हैं?'
+        ]
+      }
+    ];
+
+    const select = document.getElementById('subjectSelect');
+    const topicsDiv = document.getElementById('topics');
+    const questionsDiv = document.getElementById('questions');
+
+    // Dropdown me options daalna
+    subjects.forEach(sub => {
+      const opt = document.createElement('option');
+      opt.value = sub.id;
+      opt.textContent = sub.name;
+      select.appendChild(opt);
+    });
+
+    // Jab user subject select kare
+    select.addEventListener('change', () => {
+      const subject = subjects.find(s => s.id === select.value);
+      if (!subject) {
+        topicsDiv.innerHTML = '';
+        questionsDiv.innerHTML = '';
+        return;
+      }
+
+      // Topics list
+      topicsDiv.innerHTML = `
+        <h2>📚 विषय के मुख्य टॉपिक:</h2>
+        <ul>${subject.topics.map(t => `<li>${t}</li>`).join('')}</ul>
+      `;
+
+      // Practice Questions
+      questionsDiv.innerHTML = `
+        <h3>📝 अभ्यास प्रश्न:</h3>
+        <ul>${subject.questions.map(q => `<li>${q}</li>`).join('')}</ul>
+      `;
+    });
+  </script>
+
+</body>
+</html>
